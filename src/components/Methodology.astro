@@ -1,0 +1,128 @@
+---
+const steps = [
+  {
+  
+    phase: "Auditoría",
+    title: "Briefing & OP.GG",
+    desc: "Auditoría completa de tu perfil. Analizamos winrates, varianza y pool de campeones para detectar errores estructurales antes de entrar en partida.",
+  },
+  {
+
+    phase: "Análisis",
+    title: "VOD Review Crítico",
+    desc: "Análisis de una derrota compartiendo pantalla. Identificamos patrones de error en tu toma de decisiones y gestión de oleadas.",
+  },
+  {
+
+    phase: "Acción",
+    title: "Live Coaching",
+    desc: "Sesión en tiempo real. Guía directa en tus partidas para corregir posicionamiento, pathing y tempo bajo presión constante.",
+  },
+  {
+  
+    phase: "Evolución",
+    title: "Hoja de Ruta",
+    desc: "Plan de entrenamiento post-sesión: ejercicios específicos de micro/macro y optimización de pool basada en tu ELO actual.",
+  }
+];
+---
+
+<section id="metodologia" class="py-32 relative overflow-hidden bg-[#2D2826]">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#A1B0B7_1px,transparent_1px),linear-gradient(to_bottom,#A1B0B7_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_#2D2826_80%)]"></div>
+  </div>
+
+  <div class="absolute inset-0 pointer-events-none z-10 overflow-hidden">
+    {[...Array(20)].map((_, i) => (
+      <div 
+        class="ash-particle" 
+        style={`left: ${Math.random() * 100}%; top: ${Math.random() * 100}%; animation-delay: ${Math.random() * 15}s; width: ${Math.random() * 4 + 2}px; height: ${Math.random() * 4 + 2}px;`}
+      ></div>
+    ))}
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-20">
+    <div class="mb-24 text-center">
+      <div class="inline-flex items-center gap-4 mb-6">
+        <div class="h-[1px] w-8 bg-[#C0734F]"></div>
+        <span class="font-mono text-[10px] text-[#C0734F] uppercase tracking-[0.6em] font-bold">Protocolo de Optimización</span>
+        <div class="h-[1px] w-8 bg-[#C0734F]"></div>
+      </div>
+      <h2 class="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-8">
+        SISTEMA DE <span class="text-transparent bg-clip-text bg-gradient-to-b from-white to-[#545C61]">TRABAJO</span>
+      </h2>
+      <p class="text-[#A1B0B7] max-w-2xl mx-auto text-base font-medium leading-relaxed opacity-80">
+        Un proceso estructurado para eliminar la aleatoriedad de tus partidas y convertirlas en una ejecución técnica de alto nivel.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {steps.map((step) => (
+        <div class="group relative">
+          <div class="absolute inset-0 bg-[#C0734F]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"></div>
+          
+          <div class="relative h-full bg-[#1e1a18]/60 border border-white/5 backdrop-blur-xl p-10 flex flex-col transition-all duration-500 group-hover:border-[#C0734F]/30 group-hover:-translate-y-2">
+            
+            <div class="flex justify-between items-center mb-16">
+              <span class="font-mono text-xs font-bold text-[#545C61] group-hover:text-[#C0734F] transition-colors">
+              
+              </span>
+              <div class="text-[9px] font-bold text-[#A1B0B7] border border-[#545C61]/30 px-3 py-1 uppercase tracking-widest bg-white/5">
+                {step.phase}
+              </div>
+            </div>
+
+            <div class="flex-grow">
+              <h3 class="text-2xl font-black text-white uppercase tracking-tight mb-4 group-hover:translate-x-1 transition-transform">
+                {step.title}
+              </h3>
+              <p class="text-[#A1B0B7] text-sm leading-relaxed font-medium opacity-70 group-hover:opacity-100 transition-opacity">
+                {step.desc}
+              </p>
+            </div>
+
+            <div class="mt-12 flex items-center gap-2">
+                <div class="h-[1px] w-full bg-[#545C61]/30 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[#C0734F] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-1000"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-32 text-center">
+        <a href="#contacto" class="group relative inline-block">
+            <div class="absolute inset-0 bg-[#C0734F]/20 blur-3xl opacity-0 group-hover:opacity-100 transition-all"></div>
+            <div class="relative px-12 py-6 bg-transparent border border-[#545C61]/50 hover:border-[#C0734F] transition-all overflow-hidden">
+                <span class="font-mono text-[10px] text-[#A1B0B7] uppercase tracking-[0.8em] block mb-2 opacity-60">Fase Final</span>
+                <span class="text-xl md:text-2xl text-white font-black uppercase tracking-tighter">
+                    SOLICITAR AUDITORÍA <span class="text-[#C0734F] italic"></span>
+                </span>
+                
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+            </div>
+        </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Animación de Cenizas centrada en la atmósfera */
+  .ash-particle {
+    position: absolute;
+    background: #C0734F;
+    border-radius: 1px;
+    filter: blur(1px);
+    opacity: 0;
+    animation: ash-float 15s infinite linear;
+  }
+
+  @keyframes ash-float {
+    0% { transform: translateY(20vh) translateX(0) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.3; }
+    80% { opacity: 0.3; }
+    100% { transform: translateY(-100vh) translateX(50px) rotate(180deg); opacity: 0; }
+  }
+</style>

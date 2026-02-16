@@ -1,0 +1,114 @@
+---
+import '../styles/global.css';
+
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const { 
+  title, 
+  description = "Coaching profesional de League of Legends. Metodología de alto rendimiento para subir de elo." 
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="bg-[#2D2826] scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <meta name="generator" content={Astro.generator} />
+        
+        <title>{title}</title>
+        <meta name="description" content={description} />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    </head>
+    
+    <body class="antialiased text-[#A1B0B7] bg-[#2D2826]">
+        
+        <nav class="fixed top-0 left-0 w-full z-50 px-10 py-8 pointer-events-none">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="pointer-events-auto group cursor-default">
+                    <div class="relative">
+                        <span class="font-mono text-lg md:text-xl font-black tracking-tighter text-[#A1B0B7] transition-all duration-300 group-hover:text-white">
+                            gonzaCOME<span class="text-[#C0734F] opacity-80 group-hover:opacity-100">#00001</span>
+                        </span>
+                        <div class="absolute -bottom-1 left-0 w-full h-[2px] bg-[#C0734F] origin-left scale-x-50 group-hover:scale-x-100 transition-transform duration-500 shadow-[0_0_15px_rgba(192,115,79,0.5)]"></div>
+                    </div>
+                </div>
+
+                <div class="pointer-events-auto flex items-center gap-8 font-mono text-[10px] uppercase tracking-[0.3em] font-bold">
+                    <a href="#inicio" class="text-[#545C61] hover:text-[#C0734F] transition-colors duration-300">Inicio</a>
+                    <a href="#metodologia" class="text-[#545C61] hover:text-[#C0734F] transition-colors duration-300">Método</a>
+                    <a href="#trayectoria" class="text-[#545C61] hover:text-[#C0734F] transition-colors duration-300">Trayectoria</a>
+                    <a href="#contacto" class="px-3 py-1 border border-[#C0734F]/30 text-[#C0734F] hover:bg-[#C0734F] hover:text-[#2D2826] transition-all duration-300">Contacto</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+            <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[#C0734F]/5 blur-[120px] rounded-full"></div>
+            <div class="absolute inset-0 opacity-[0.02] bg-grain"></div>
+        </div>
+
+        <main>
+            <slot />
+        </main>
+
+        <footer class="relative py-20 border-t border-[#545C61]/20 bg-[#2D2826]">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <div class="font-mono font-bold text-lg mb-4 text-[#A1B0B7] tracking-tighter">
+                    gonzaCOME<span class="text-[#C0734F]">#00001</span>
+                </div>
+                <p class="text-[#545C61] text-[10px] max-w-md mx-auto leading-relaxed uppercase tracking-widest opacity-70">
+                    Este sitio no está avalado por Riot Games y no refleja los puntos de vista de la compañía. League of Legends es marca registrada de Riot Games, Inc.
+                </p>
+                <div class="mt-8 flex justify-center gap-6">
+                    <div class="w-8 h-[1px] bg-[#C0734F]/20 self-center"></div>
+                    <span class="text-[9px] uppercase tracking-[0.5em] text-[#545C61] font-bold">Season 2026</span>
+                    <div class="w-8 h-[1px] bg-[#C0734F]/20 self-center"></div>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+</html>
+
+<style is:global>
+    :root {
+        --color-dark: #2D2826;
+        --color-light: #A1B0B7;
+        --color-accent: #C0734F;
+        --color-muted: #545C61;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* Scrollbar minimalista */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--color-dark); }
+    ::-webkit-scrollbar-thumb { 
+        background: var(--color-muted); 
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
+
+    ::selection {
+        background-color: rgba(192, 115, 79, 0.4);
+        color: #fff;
+    }
+
+    /* Animación de entrada */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    main {
+        animation: fadeIn 0.8s ease-out forwards;
+    }
+</style>

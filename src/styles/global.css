@@ -1,0 +1,61 @@
+/* Tailwind v4 solo necesita este import */
+@import "tailwindcss";
+
+@theme {
+  /* Paleta de colores inspirada en Yasuo y el cliente de LoL */
+  --color-lol-dark: #010A13;
+  --color-lol-indigo: #1E2328;
+  --color-lol-gold: #C8AA6E;
+  --color-lol-blue: #0AC8B9;
+  --color-lol-purple: #785A28;
+}
+
+:root {
+  --font-riot: 'Cinzel', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-lol-dark);
+  color: #e2e8f0;
+  font-family: var(--font-body);
+  scroll-behavior: smooth;
+}
+
+/* Efecto de grano para profundidad visual */
+.bg-grain {
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  filter: contrast(150%) brightness(100%);
+}
+
+/* --- ANIMACIONES MODERNAS PARA EL CLIENTE --- */
+
+@keyframes reveal {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px) scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+/* Aplica esta clase a cualquier sección o tarjeta para que aparezca al hacer scroll */
+.reveal {
+  view-timeline-name: --item;
+  view-timeline-axis: block;
+  animation-name: reveal;
+  animation-fill-mode: both;
+  animation-timeline: --item;
+  animation-range: entry 10% cover 30%;
+}
+
+/* Efecto de resplandor dorado para elementos destacados */
+.gold-glow {
+  box-shadow: 0 0 15px rgba(200, 170, 110, 0.2);
+  border: 1px solid rgba(200, 170, 110, 0.3);
+}

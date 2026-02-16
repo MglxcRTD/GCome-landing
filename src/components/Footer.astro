@@ -1,0 +1,100 @@
+---
+const socialLinks = [
+  { name: 'Discord', url: '#', label: 'DS' },
+  { name: 'Instagram', url: '#', label: 'IG' },
+  { name: 'Twitter / X', url: '#', label: 'X' },
+];
+---
+
+<footer id="contacto" class="relative pt-32 pb-12 bg-[#2D2826] overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#A1B0B7_1px,transparent_1px),linear-gradient(to_bottom,#A1B0B7_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#C0734F]/50 to-transparent"></div>
+  </div>
+
+  <div class="absolute inset-0 pointer-events-none z-10">
+    {[...Array(10)].map((_, i) => (
+      <div 
+        class="ash-particle" 
+        style={`left: ${Math.random() * 100}%; top: ${Math.random() * 100}%; animation-delay: ${Math.random() * 10}s; width: 3px; height: 3px;`}
+      ></div>
+    ))}
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-20">
+    <div class="text-center mb-24">
+      <h2 class="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter uppercase">
+        ¿LISTO PARA EL <br/> <span class="text-[#C0734F]">ASCENSO?</span>
+      </h2>
+      <p class="text-[#A1B0B7] max-w-xl mx-auto mb-12 text-sm font-bold uppercase tracking-[0.3em] opacity-80">
+        Plazas limitadas por mes. Asegura tu auditoría técnica ahora.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row justify-center gap-6">
+        <a href="https://discord.gg/tu-invitacion" target="_blank" 
+           class="px-12 py-5 bg-[#C0734F] text-[#2D2826] font-black uppercase tracking-[0.2em] hover:bg-white transition-all duration-500 shadow-[0_0_30px_rgba(192,115,79,0.2)] group">
+          Unirse al Discord
+        </a>
+        
+        <a href="https://instagram.com/tu-perfil" target="_blank" 
+           class="px-12 py-5 border border-[#545C61] text-white font-black uppercase tracking-[0.2em] hover:border-[#C0734F] hover:text-[#C0734F] transition-all duration-500 bg-[#1e1a18]/40 backdrop-blur-sm">
+          Instagram
+        </a>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-12 border-t border-[#545C61]/20 pt-16 items-center">
+      <div class="text-center md:text-left">
+        <div class="font-mono font-black text-xl text-white tracking-tighter uppercase mb-2">
+            gonzaCOME<span class="text-[#C0734F]">#00001</span>
+        </div>
+        <p class="text-[10px] text-[#545C61] font-bold uppercase tracking-[0.4em]">
+          Optimización técnica // Season 2026
+        </p>
+      </div>
+
+      <div class="flex justify-center gap-8 text-[10px] font-black uppercase tracking-[0.3em]">
+        <a href="#inicio" class="text-[#545C61] hover:text-white transition-colors">Inicio</a>
+        <a href="#metodologia" class="text-[#545C61] hover:text-white transition-colors">Método</a>
+        <a href="#trayectoria" class="text-[#545C61] hover:text-white transition-colors">Trayectoria</a>
+      </div>
+
+      <div class="flex justify-center md:justify-end gap-4">
+        {socialLinks.map(link => (
+          <a href={link.url} class="group relative" title={link.name}>
+            <div class="w-12 h-12 border border-[#545C61]/30 bg-[#1e1a18] flex items-center justify-center transition-all duration-300 group-hover:border-[#C0734F]/50 group-hover:-translate-y-1">
+               <span class="font-mono text-xs text-[#545C61] group-hover:text-white transition-colors">
+                 {link.label}
+               </span>
+               <div class="absolute inset-0 bg-[#C0734F]/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-24 text-center">
+      <p class="text-[9px] text-[#545C61] uppercase tracking-[0.4em] leading-loose max-w-5xl mx-auto border-t border-[#545C61]/10 pt-8 font-medium">
+        © 2026 GONZACOME COACHING. Este sitio no está vinculado ni avalado por Riot Games. League of Legends es marca registrada de Riot Games, Inc.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .ash-particle {
+    position: absolute;
+    background: #C0734F;
+    border-radius: 1px;
+    filter: blur(1px);
+    opacity: 0;
+    animation: ash-float-footer 15s infinite linear;
+  }
+
+  @keyframes ash-float-footer {
+    0% { transform: translateY(10vh) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.3; }
+    80% { opacity: 0.3; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+  }
+</style>

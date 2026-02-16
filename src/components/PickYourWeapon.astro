@@ -1,0 +1,135 @@
+---
+const packs = [
+  {
+    name: "Análisis Flash",
+    duration: "1 Sesión",
+    price: "10€",
+    features: ["Revisión de OP.GG", "Análisis de 1 VOD", "Plan de mejora inmediato"],
+    tag: "Iniciación",
+    popular: false
+  },
+  {
+    name: "Live Mastery",
+    duration: "1.5 Horas",
+    price: "25€",
+    features: ["Live Coaching (Spectate)", "Micro-game check", "Drafting avanzado"],
+    tag: "Más vendido",
+    popular: true
+  },
+  {
+    name: "High Elo Pack",
+    duration: "4 Sesiones",
+    price: "60€",
+    features: ["Todo lo anterior", "Seguimiento semanal", "Acceso directo Discord"],
+    tag: "Recomendado",
+    popular: false
+  },
+  {
+    name: "Pro Grind",
+    duration: "Mes completo",
+    price: "Consultar",
+    features: ["Coach personal 24/7", "Análisis diario", "Psicología SoloQ"],
+    tag: "Elite",
+    popular: false
+  }
+];
+---
+
+<section id="servicios" class="py-32 relative overflow-hidden bg-[#2D2826]">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#A1B0B7_1px,transparent_1px),linear-gradient(to_bottom,#A1B0B7_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_#2D2826_90%)]"></div>
+  </div>
+
+  <div class="absolute inset-0 pointer-events-none z-10 overflow-hidden">
+    {[...Array(20)].map((_, i) => (
+      <div 
+        class="ash-particle" 
+        style={`left: ${Math.random() * 100}%; top: ${Math.random() * 100}%; animation-delay: ${Math.random() * 15}s; width: 4px; height: 4px;`}
+      ></div>
+    ))}
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-20">
+    <div class="mb-24 text-center">
+      <div class="inline-flex items-center gap-4 mb-6">
+        <div class="h-[1px] w-8 bg-[#C0734F]"></div>
+        <span class="font-mono text-[10px] text-[#C0734F] uppercase tracking-[0.6em] font-bold">Planes de Entrenamiento</span>
+        <div class="h-[1px] w-8 bg-[#C0734F]"></div>
+      </div>
+      <h2 class="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-8">
+        ELIGE TU <span class="text-transparent bg-clip-text bg-gradient-to-b from-white to-[#545C61]">PLAN</span>
+      </h2>
+      <p class="text-[#A1B0B7] max-w-2xl mx-auto text-base font-medium leading-relaxed opacity-80">
+        Desde análisis puntuales hasta mentorías mensuales. Selecciona el nivel de compromiso que necesitas para alcanzar el rango deseado.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {packs.map((pack) => (
+        <div class="group relative">
+          {pack.popular && (
+             <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-30 bg-[#C0734F] text-[#2D2826] text-[10px] font-black px-4 py-1 uppercase tracking-widest shadow-[0_0_15px_rgba(192,115,79,0.5)]">
+               Más Popular
+             </div>
+          )}
+          
+          <div class={`relative h-full flex flex-col bg-[#1e1a18]/80 border ${pack.popular ? 'border-[#C0734F]/50' : 'border-white/5'} backdrop-blur-xl p-10 transition-all duration-500 group-hover:-translate-y-2`}>
+            
+            <div class="mb-8">
+              <span class="font-mono text-[10px] text-[#545C61] uppercase tracking-widest block mb-2">{pack.duration}</span>
+              <h3 class="text-2xl font-black text-white uppercase tracking-tight mb-2">
+                {pack.name}
+              </h3>
+              <div class="text-3xl font-black text-[#C0734F] tracking-tighter">
+                {pack.price}
+              </div>
+            </div>
+
+            <ul class="flex-grow space-y-4 mb-12">
+              {pack.features.map((feature) => (
+                <li class="flex items-start gap-3 text-sm text-[#A1B0B7]/80">
+                  <span class="text-[#C0734F] font-bold mt-0.5">/</span>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
+            <a 
+              href="#contacto" 
+              class={`w-full py-4 text-center font-black uppercase text-[10px] tracking-[0.2em] transition-all duration-300 border ${pack.popular ? 'bg-[#C0734F] text-[#2D2826] border-[#C0734F]' : 'border-[#545C61] text-white hover:border-[#C0734F] hover:text-[#C0734F]'}`}
+            >
+              Seleccionar
+            </a>
+            
+            <div class="absolute bottom-0 right-0 w-8 h-8 bg-gradient-to-br from-transparent via-transparent to-white/5 pointer-events-none"></div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-20 text-center opacity-50">
+        <p class="font-mono text-[9px] text-[#545C61] uppercase tracking-[0.4em]">
+          Pagos seguros vía PayPal / Disponibilidad sujeta a agenda
+        </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ash-particle {
+    position: absolute;
+    background: #C0734F;
+    border-radius: 1px;
+    filter: blur(1px);
+    opacity: 0;
+    animation: ash-float 15s infinite linear;
+  }
+
+  @keyframes ash-float {
+    0% { transform: translateY(20vh) translateX(0) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.3; }
+    80% { opacity: 0.3; }
+    100% { transform: translateY(-100vh) translateX(50px) rotate(180deg); opacity: 0; }
+  }
+</style>
